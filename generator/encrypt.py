@@ -8,14 +8,14 @@ pad = lambda s: s + ((BLOCK_SIZE - len(s)) % BLOCK_SIZE * PADDING)
 
 key = b'super secret key'
 iv = Random.new().read(AES.block_size)
-print len(iv)
+print(len(iv))
 with open('iv.txt', 'w') as ff:
     ff.write(iv)
 
 
 with open('iv.txt', 'r') as fiv:
     new_iv = fiv.read()
-    print len(new_iv)
+    print(len(new_iv))
 
 cipher = AES.new(key, AES.MODE_CFB, iv)
 
